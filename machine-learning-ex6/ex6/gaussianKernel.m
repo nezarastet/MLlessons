@@ -8,7 +8,7 @@ x1 = x1(:); x2 = x2(:);
 
 % You need to return the following variables correctly.
 %
-sim = 0;
+sim = exp(-(x1-x2)'*(x1-x2)*0.5/sigma^2);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Fill in this function to return the similarity between x1
