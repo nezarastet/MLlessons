@@ -21,7 +21,21 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
+for i=1:length(X(:,1))
+    %take each example
+    idx(i)=1;
+    projection = (X(i,:)-centroids(1,:) )';
+    projection_lengthMin = projection'*projection;
+    for j=2:K
+        %take each centroid
+            projection = (X(i,:)-centroids(j,:) )';
+            projection_length = projection'*projection;  
+            if (projection_length < projection_lengthMin)
+                idx(i)=j;
+                projection_lengthMin = projection_length;
+            end
+    end
+end
 
 
 
