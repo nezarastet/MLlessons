@@ -20,11 +20,14 @@ sigma2 = zeros(n, 1);
 %               the data for the i-th feature and sigma2(i)
 %               should contain variance of the i-th feature.
 %
+X=X';
 
+mu = mean(X,2);
 
+XminusMu = bsxfun(@minus, X, mu);
+XminusMu2=XminusMu.^2;
 
-
-
+sigma2 = (1/m) * sum(XminusMu2,2);
 
 
 
